@@ -10,7 +10,8 @@ const app = express();
 // ✅ Allowed origins (add your Vercel URL here)
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://sims-exam-portal.vercel.app"   // 🔥 your frontend URL
+  "https://sims-exam-portal.vercel.app",
+  "https://sims-exam-portal-main.vercel.app"  // ✅ ADD THIS
 ];
 
 // ✅ CORS setup (fixed)
