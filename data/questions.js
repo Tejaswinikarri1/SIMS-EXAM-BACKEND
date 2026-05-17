@@ -1,111 +1,458 @@
 const questions = [
-  // HTML Questions (1-25)
-  { id: 1, topic: "HTML", question: "What does HTML stand for?", options: ["HyperText Markup Language", "HighText Machine Language", "HyperText Machine Language", "HyperTool Markup Language"], correct: 0 },
-  { id: 2, topic: "HTML", question: "Which HTML element is used to define the title of a document?", options: ["<meta>", "<head>", "<title>", "<header>"], correct: 2 },
-  { id: 3, topic: "HTML", question: "Which attribute is used to provide alternative text for an image?", options: ["src", "title", "alt", "href"], correct: 2 },
-  { id: 4, topic: "HTML", question: "What is the correct HTML element for the largest heading?", options: ["<h6>", "<h1>", "<heading>", "<head>"], correct: 1 },
-  { id: 5, topic: "HTML", question: "Which HTML tag is used to define an internal style sheet?", options: ["<css>", "<script>", "<style>", "<link>"], correct: 2 },
-  { id: 6, topic: "HTML", question: "What is the correct HTML for creating a hyperlink?", options: ["<a url='http://example.com'>Link</a>", "<a href='http://example.com'>Link</a>", "<link href='http://example.com'>Link</link>", "<a name='http://example.com'>Link</a>"], correct: 1 },
-  { id: 7, topic: "HTML", question: "Which HTML element defines navigation links?", options: ["<navigate>", "<nav>", "<navigation>", "<navi>"], correct: 1 },
-  { id: 8, topic: "HTML", question: "What is the purpose of the <doctype> declaration?", options: ["Defines the document type", "Links CSS to HTML", "Creates a header section", "Defines metadata"], correct: 0 },
-  { id: 9, topic: "HTML", question: "Which attribute makes an HTML input field required?", options: ["validate", "mandatory", "required", "must"], correct: 2 },
-  { id: 10, topic: "HTML", question: "What does the 'defer' attribute in a script tag do?", options: ["Delays loading the HTML", "Executes script after HTML parsing", "Prevents script execution", "Loads script asynchronously"], correct: 1 },
-  { id: 11, topic: "HTML", question: "Which HTML5 element is used to draw graphics?", options: ["<svg>", "<canvas>", "<draw>", "<graphic>"], correct: 1 },
-  { id: 12, topic: "HTML", question: "What is the correct way to add a comment in HTML?", options: ["// comment", "/* comment */", "<!-- comment -->", "# comment"], correct: 2 },
-  { id: 13, topic: "HTML", question: "Which input type is used for a date picker?", options: ["input type='calendar'", "input type='datetime'", "input type='date'", "input type='datepicker'"], correct: 2 },
-  { id: 14, topic: "HTML", question: "Which HTML element represents a self-contained piece of content?", options: ["<section>", "<div>", "<article>", "<aside>"], correct: 2 },
-  { id: 15, topic: "HTML", question: "What does the 'srcset' attribute on an image element do?", options: ["Sets multiple source files for video", "Provides multiple image sizes for responsive design", "Sets the image source URL", "Defines image styling"], correct: 1 },
-  { id: 16, topic: "HTML", question: "Which HTML attribute is used to specify the character encoding?", options: ["charset", "encoding", "type", "lang"], correct: 0 },
-  { id: 17, topic: "HTML", question: "What is the difference between <section> and <div>?", options: ["No difference", "<section> has semantic meaning, <div> is generic", "<div> is semantic, <section> is generic", "<section> is deprecated"], correct: 1 },
-  { id: 18, topic: "HTML", question: "Which HTML element is used for client-side storage of key-value pairs?", options: ["<storage>", "<database>", "<cache>", "No element; localStorage API is used in JS"], correct: 3 },
-  { id: 19, topic: "HTML", question: "What is the purpose of the 'data-*' attributes in HTML5?", options: ["Store private page/application data", "Define CSS styles", "Reference external scripts", "Define accessibility roles"], correct: 0 },
-  { id: 20, topic: "HTML", question: "Which element should be used for keyboard input representation?", options: ["<input>", "<kbd>", "<code>", "<samp>"], correct: 1 },
-  { id: 21, topic: "HTML", question: "What does 'async' attribute on a script tag do?", options: ["Loads script synchronously", "Loads and executes script asynchronously without blocking HTML parsing", "Defers execution until DOM is ready", "Prevents script from loading"], correct: 1 },
-  { id: 22, topic: "HTML", question: "Which HTML5 API enables offline web applications?", options: ["Web Workers", "Service Workers", "Application Cache (AppCache)", "IndexedDB"], correct: 1 },
-  { id: 23, topic: "HTML", question: "What is the purpose of the <template> element in HTML5?", options: ["Creates visible templates", "Holds client-side content not rendered on page load", "Defines CSS templates", "Creates reusable components"], correct: 1 },
-  { id: 24, topic: "HTML", question: "Which attribute is used to make a table cell span multiple columns?", options: ["rowspan", "cellspan", "colspan", "span"], correct: 2 },
-  { id: 25, topic: "HTML", question: "What is ARIA in web development?", options: ["A JavaScript framework", "Accessible Rich Internet Applications", "An HTML version", "A CSS preprocessor"], correct: 1 },
+  {
+    id: 1,
+    topic: "Digital Marketing",
+    question: "What is digital marketing?",
+    options: [
+      "Marketing done online",
+      "Using only Facebook to market products",
+      "The process of promoting products and services using the internet",
+      "Marketing using only Instagram",
+    ],
+    correct: 2,
+  },
 
-  // CSS Questions (26-50)
-  { id: 26, topic: "CSS", question: "What does CSS stand for?", options: ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style Sheets", "Colorful Style Sheets"], correct: 1 },
-  { id: 27, topic: "CSS", question: "Which property is used to change the text color?", options: ["fgcolor", "text-color", "color", "font-color"], correct: 2 },
-  { id: 28, topic: "CSS", question: "What is the CSS Box Model?", options: ["A 3D rendering model", "Content, Padding, Border, Margin", "A layout grid system", "A flexbox model"], correct: 1 },
-  { id: 29, topic: "CSS", question: "Which CSS property controls the stacking order of elements?", options: ["stack-order", "layer", "z-index", "position"], correct: 2 },
-  { id: 30, topic: "CSS", question: "What is the difference between 'em' and 'rem' units?", options: ["No difference", "'em' relative to parent, 'rem' relative to root element", "'rem' relative to parent, 'em' relative to root element", "'em' is absolute, 'rem' is relative"], correct: 1 },
-  { id: 31, topic: "CSS", question: "Which CSS property is used to create a flex container?", options: ["display: flex", "flexbox: true", "layout: flex", "position: flex"], correct: 0 },
-  { id: 32, topic: "CSS", question: "What does 'position: absolute' do?", options: ["Positions element relative to viewport", "Positions element relative to nearest positioned ancestor", "Removes element from document flow", "Both B and C"], correct: 3 },
-  { id: 33, topic: "CSS", question: "Which property is used to add space inside an element's border?", options: ["margin", "border-space", "padding", "spacing"], correct: 2 },
-  { id: 34, topic: "CSS", question: "What is a CSS pseudo-class?", options: ["A fake class", "A keyword added to selector for special state", "A class used in JavaScript", "A deprecated CSS feature"], correct: 1 },
-  { id: 35, topic: "CSS", question: "Which CSS value makes an element invisible but still occupies space?", options: ["display: none", "visibility: hidden", "opacity: 0", "Both B and C"], correct: 3 },
-  { id: 36, topic: "CSS", question: "What is the purpose of 'box-sizing: border-box'?", options: ["Adds a border to the box model", "Includes padding and border in element's total width/height", "Removes the box model", "Applies only to border properties"], correct: 1 },
-  { id: 37, topic: "CSS", question: "Which CSS property creates a grid container?", options: ["layout: grid", "display: grid", "grid: true", "position: grid"], correct: 1 },
-  { id: 38, topic: "CSS", question: "What does the 'calc()' function do in CSS?", options: ["Calculates specificity", "Performs mathematical calculations for property values", "A JavaScript function", "Calculates animation duration"], correct: 1 },
-  { id: 39, topic: "CSS", question: "What is CSS specificity?", options: ["The speed of CSS rendering", "A weight system determining which styles are applied", "Number of CSS properties", "The specificity of color values"], correct: 1 },
-  { id: 40, topic: "CSS", question: "Which CSS property is used for CSS animations?", options: ["transition", "animation", "keyframe", "animate"], correct: 1 },
-  { id: 41, topic: "CSS", question: "What does 'overflow: hidden' do?", options: ["Hides the element", "Clips content that exceeds the element's box", "Makes element transparent", "Removes element from flow"], correct: 1 },
-  { id: 42, topic: "CSS", question: "What is a CSS custom property (variable)?", options: ["A predefined CSS property", "A user-defined property prefixed with --", "A JavaScript variable in CSS", "A deprecated feature"], correct: 1 },
-  { id: 43, topic: "CSS", question: "Which selector has the highest specificity?", options: ["Element selector", "Class selector", "ID selector", "Inline style"], correct: 3 },
-  { id: 44, topic: "CSS", question: "What does 'flex-wrap: wrap' do?", options: ["Wraps text inside flex items", "Allows flex items to wrap to next line", "Prevents wrapping", "Wraps the flex container"], correct: 1 },
-  { id: 45, topic: "CSS", question: "What is a CSS media query used for?", options: ["Querying the server", "Applying styles based on device/viewport conditions", "Loading media files", "Querying the DOM"], correct: 1 },
-  { id: 46, topic: "CSS", question: "Which property controls the speed of a CSS transition?", options: ["transition-time", "transition-speed", "transition-duration", "speed"], correct: 2 },
-  { id: 47, topic: "CSS", question: "What is the purpose of CSS 'transform' property?", options: ["Transforms HTML to CSS", "Applies 2D/3D transformations to elements", "Changes font style", "Creates animations"], correct: 1 },
-  { id: 48, topic: "CSS", question: "Which CSS property would you use to make text not wrap to the next line?", options: ["text-overflow: ellipsis", "overflow: hidden", "white-space: nowrap", "word-wrap: break-word"], correct: 2 },
-  { id: 49, topic: "CSS", question: "What does 'align-items: center' do in Flexbox?", options: ["Centers items horizontally", "Centers items on the cross axis", "Centers text in items", "Centers the flex container"], correct: 1 },
-  { id: 50, topic: "CSS", question: "What is the 'clamp()' function in CSS?", options: ["Clamps element position", "Sets a value within a min/max range", "Clips overflow content", "A browser-specific feature"], correct: 1 },
+  {
+    id: 2,
+    topic: "HTML",
+    question: "What is an HTML tag?",
+    options: [
+      "A keyword enclosed in angle brackets",
+      "A tool used to style text",
+      "A method to change webpage colors",
+      "A type of browser setting",
+    ],
+    correct: 0,
+  },
 
-  // JavaScript Questions (51-75)
-  { id: 51, topic: "JavaScript", question: "What is a closure in JavaScript?", options: ["A function that returns another function", "A function that has access to its outer scope's variables even after the outer function returns", "A way to close browser windows", "A method to end loops"], correct: 1 },
-  { id: 52, topic: "JavaScript", question: "What is the difference between '==' and '==='?", options: ["No difference", "'==' checks value only, '===' checks value and type", "'===' checks value only, '==' checks value and type", "'==' is assignment, '===' is comparison"], correct: 1 },
-  { id: 53, topic: "JavaScript", question: "What does 'hoisting' mean in JavaScript?", options: ["Moving HTML elements up", "Variables/functions declarations moved to top of scope", "A CSS positioning technique", "Loading scripts before HTML"], correct: 1 },
-  { id: 54, topic: "JavaScript", question: "What is the event loop in JavaScript?", options: ["A for loop for events", "A mechanism that allows JS to perform non-blocking operations", "An event listener loop", "A while loop for events"], correct: 1 },
-  { id: 55, topic: "JavaScript", question: "What is a Promise in JavaScript?", options: ["A guarantee from a library", "An object representing eventual completion/failure of an async operation", "A contract between functions", "A type of variable"], correct: 1 },
-  { id: 56, topic: "JavaScript", question: "What does 'Array.prototype.reduce()' do?", options: ["Removes elements from array", "Reduces array size by half", "Executes a reducer function to produce a single value", "Filters array elements"], correct: 2 },
-  { id: 57, topic: "JavaScript", question: "What is the difference between 'null' and 'undefined'?", options: ["No difference", "'undefined' means variable declared but not assigned; 'null' is intentional absence of value", "'null' means not declared; 'undefined' is intentional empty", "Both mean the same thing"], correct: 1 },
-  { id: 58, topic: "JavaScript", question: "What is prototypal inheritance in JavaScript?", options: ["Copying properties from parent class", "Objects inheriting directly from other objects via prototype chain", "A way to inherit CSS styles", "A deprecated feature"], correct: 1 },
-  { id: 59, topic: "JavaScript", question: "What does the 'spread operator' (...) do?", options: ["Creates a loop", "Expands iterable elements into individual elements", "Spreads CSS styles", "Creates a new array"], correct: 1 },
-  { id: 60, topic: "JavaScript", question: "What is 'this' keyword in JavaScript?", options: ["Refers to the current file", "Refers to the object that the current code is executing in", "A reserved variable name", "Refers to the global window always"], correct: 1 },
-  { id: 61, topic: "JavaScript", question: "What is 'async/await' in JavaScript?", options: ["A CSS animation technique", "Syntactic sugar over Promises for handling asynchronous operations", "A new JavaScript version", "A way to pause JavaScript execution permanently"], correct: 1 },
-  { id: 62, topic: "JavaScript", question: "What is event delegation?", options: ["Delegating events to the server", "Attaching a single event listener to a parent to handle events on children", "Creating custom events", "Removing event listeners"], correct: 1 },
-  { id: 63, topic: "JavaScript", question: "What does 'Object.freeze()' do?", options: ["Freezes browser", "Makes an object immutable", "Creates a copy of object", "Removes object properties"], correct: 1 },
-  { id: 64, topic: "JavaScript", question: "What is a generator function in JavaScript?", options: ["A function that generates random numbers", "A function that can pause and resume execution using yield", "A function factory", "A built-in JavaScript function"], correct: 1 },
-  { id: 65, topic: "JavaScript", question: "What is the difference between 'var', 'let', and 'const'?", options: ["No difference", "'var' is function-scoped; 'let'/'const' are block-scoped; 'const' cannot be reassigned", "'let' is global; 'var' is local; 'const' is temporary", "All are identical in modern JS"], correct: 1 },
-  { id: 66, topic: "JavaScript", question: "What is 'debouncing' in JavaScript?", options: ["Removing duplicate events", "Delaying function execution until after a specified time since last call", "A CSS technique", "Cancelling event listeners"], correct: 1 },
-  { id: 67, topic: "JavaScript", question: "What does 'Symbol' type represent in JavaScript?", options: ["A mathematical symbol", "A unique and immutable primitive value", "A string shorthand", "An emoji in code"], correct: 1 },
-  { id: 68, topic: "JavaScript", question: "What is memoization in JavaScript?", options: ["Writing code comments", "Caching function results to avoid redundant computations", "A memory management technique", "Storing variables in memory"], correct: 1 },
-  { id: 69, topic: "JavaScript", question: "What is a WeakMap in JavaScript?", options: ["A Map with fewer entries", "A Map where keys are weakly referenced objects (allowing garbage collection)", "A deprecated Map type", "A Map with weak values"], correct: 1 },
-  { id: 70, topic: "JavaScript", question: "What does 'IIFE' stand for and what is its purpose?", options: ["Immediately Invoked Function Expression; executes immediately after definition", "Internal Invoked Function Expression; defines internal functions", "Infinite Invoked Function Expression; creates infinite loops", "Inherited Invoked Function Expression; handles inheritance"], correct: 0 },
-  { id: 71, topic: "JavaScript", question: "What is the purpose of 'Object.assign()'?", options: ["Assigns a type to an object", "Copies enumerable own properties from source to target object", "Creates a deep clone", "Assigns prototype methods"], correct: 1 },
-  { id: 72, topic: "JavaScript", question: "What is 'throttling' in JavaScript?", options: ["Limiting network bandwidth", "Ensuring a function is called at most once in a specified time interval", "Slowing down animations", "Controlling CPU usage"], correct: 1 },
-  { id: 73, topic: "JavaScript", question: "What does the 'typeof' operator return for an array?", options: ["'array'", "'object'", "'list'", "'reference'"], correct: 1 },
-  { id: 74, topic: "JavaScript", question: "What is the purpose of 'try...catch...finally' in JavaScript?", options: ["Loop handling", "Error handling; finally always executes", "Async operation handling", "Event handling"], correct: 1 },
-  { id: 75, topic: "JavaScript", question: "What is destructuring in JavaScript?", options: ["Breaking down code into modules", "Unpacking values from arrays/properties from objects into variables", "Deleting object properties", "A debugging technique"], correct: 1 },
+  {
+    id: 3,
+    topic: "HTML",
+    question: "What is the correct format to start an HTML document?",
+    options: ["</html>", "<html>", "<Doctype!>", "<!DOCTYPE html>"],
+    correct: 3,
+  },
 
-  // React Questions (76-100)
-  { id: 76, topic: "React", question: "What is React?", options: ["A full-stack framework", "A JavaScript library for building user interfaces", "A CSS framework", "A database management system"], correct: 1 },
-  { id: 77, topic: "React", question: "What is JSX?", options: ["A JavaScript extension", "JavaScript XML; a syntax extension that allows HTML in JavaScript", "A new programming language", "A React-specific API"], correct: 1 },
-  { id: 78, topic: "React", question: "What is a React component?", options: ["A CSS module", "A reusable piece of UI that returns React elements", "A JavaScript class only", "A database entity"], correct: 1 },
-  { id: 79, topic: "React", question: "What is the Virtual DOM?", options: ["A virtual reality interface", "A lightweight copy of the real DOM used for efficient updates", "A server-side DOM", "A deprecated React feature"], correct: 1 },
-  { id: 80, topic: "React", question: "What hook is used for managing state in a functional component?", options: ["useEffect", "useRef", "useState", "useContext"], correct: 2 },
-  { id: 81, topic: "React", question: "What does 'useEffect' hook do?", options: ["Creates side effects in class components", "Handles side effects in functional components", "Replaces lifecycle methods in class components only", "Creates animations"], correct: 1 },
-  { id: 82, topic: "React", question: "What is the purpose of the 'key' prop in lists?", options: ["Used for styling list items", "Helps React identify which items changed, added, or removed", "Required for all elements", "Provides accessibility"], correct: 1 },
-  { id: 83, topic: "React", question: "What is prop drilling and how can it be solved?", options: ["A performance issue; solved with lazy loading", "Passing props through many levels; solved with Context API or state management", "A bug in React; solved with updates", "A CSS issue; solved with styled components"], correct: 1 },
-  { id: 84, topic: "React", question: "What is the Context API in React?", options: ["An API for managing server context", "A way to share data across components without prop drilling", "A third-party library", "A Redux alternative only"], correct: 1 },
-  { id: 85, topic: "React", question: "What does 'React.memo()' do?", options: ["Memoizes functions", "Prevents unnecessary re-renders of functional components", "Creates memoized selectors", "Memoizes API calls"], correct: 1 },
-  { id: 86, topic: "React", question: "What is the difference between controlled and uncontrolled components?", options: ["No difference", "Controlled: form data managed by React state; Uncontrolled: managed by DOM", "Controlled is deprecated; use uncontrolled", "Uncontrolled: managed by React; Controlled: managed by DOM"], correct: 1 },
-  { id: 87, topic: "React", question: "What is useCallback hook used for?", options: ["Caches computed values", "Returns a memoized callback to prevent unnecessary re-renders", "Calls callbacks automatically", "Handles async callbacks"], correct: 1 },
-  { id: 88, topic: "React", question: "What is useMemo hook used for?", options: ["Memoizes components", "Returns a memoized value to avoid expensive recalculations", "Memoizes API calls", "Manages component memory"], correct: 1 },
-  { id: 89, topic: "React", question: "What is React Router used for?", options: ["Routing HTTP requests", "Client-side navigation/routing in React applications", "Server-side routing", "API routing"], correct: 1 },
-  { id: 90, topic: "React", question: "What is code splitting in React?", options: ["Splitting CSS files", "Breaking the bundle into smaller chunks loaded on demand", "Splitting components into multiple files", "A debugging technique"], correct: 1 },
-  { id: 91, topic: "React", question: "What is the purpose of 'useRef' hook?", options: ["Creates references to server data", "Creates a mutable object persisting for component lifetime; accesses DOM elements", "A replacement for useState", "Manages references in class components"], correct: 1 },
-  { id: 92, topic: "React", question: "What is React Suspense?", options: ["Suspending React operations", "A component that waits for something before rendering children", "A deprecated feature", "A performance monitoring tool"], correct: 1 },
-  { id: 93, topic: "React", question: "What is the difference between state and props in React?", options: ["No difference", "Props are passed from parent (read-only); state is managed internally (mutable)", "State is passed from parent; props are internal", "Both are read-only"], correct: 1 },
-  { id: 94, topic: "React", question: "What is a Higher-Order Component (HOC)?", options: ["A component with high performance", "A function that takes a component and returns a new enhanced component", "A class component", "A component at the top of the hierarchy"], correct: 1 },
-  { id: 95, topic: "React", question: "What is React Hooks' rule: 'Only call Hooks at the top level'?", options: ["Import hooks at top of file", "Don't call hooks inside conditions, loops, or nested functions", "Always use hooks before state", "Call hooks before return statement only"], correct: 1 },
-  { id: 96, topic: "React", question: "What is the purpose of 'useReducer' hook?", options: ["A simpler version of useState", "Manages complex state logic using a reducer function", "Reduces bundle size", "Replaces Redux"], correct: 1 },
-  { id: 97, topic: "React", question: "What is React's reconciliation process?", options: ["Reconciling developer conflicts", "The algorithm React uses to diff the Virtual DOM and update the real DOM efficiently", "Merging two React apps", "A data fetching strategy"], correct: 1 },
-  { id: 98, topic: "React", question: "What is a custom hook in React?", options: ["A built-in hook for special cases", "A reusable function that uses built-in hooks and encapsulates logic", "A hook for form handling only", "A class method"], correct: 1 },
-  { id: 99, topic: "React", question: "What is 'React.lazy()' used for?", options: ["Making React slower", "Dynamically importing components for code splitting", "Lazy evaluation of state", "Deferring prop updates"], correct: 1 },
-  { id: 100, topic: "React", question: "What is the Flux architecture pattern?", options: ["A CSS framework", "A unidirectional data flow pattern: Action → Dispatcher → Store → View", "A REST API pattern", "A component composition pattern"], correct: 1 }
+  {
+    id: 4,
+    topic: "HTML",
+    question: "What is an HTML element?",
+    options: [
+      "A complete structure consisting of a start tag, content, and an end tag",
+      "A tool used to change text color",
+      "A browser setting",
+      "A CSS selector",
+    ],
+    correct: 0,
+  },
+
+  {
+    id: 5,
+    topic: "Digital Marketing",
+    question: "Which Google tool helps businesses advertise online?",
+    options: ["Google Ads", "Google Maps", "YouTube", "Chrome"],
+    correct: 0,
+  },
+
+  {
+    id: 6,
+    topic: "CSS",
+    question: "What is inline CSS?",
+    options: [
+      "A style used to create borders",
+      "CSS applied directly to a single HTML element",
+      "A style used to create tables",
+      "A line drawn around elements",
+    ],
+    correct: 1,
+  },
+
+  {
+    id: 7,
+    topic: "Digital Marketing",
+    question: "What is a Professional Account on Instagram?",
+    options: [
+      "An Instagram account designed for businesses and creators",
+      "An account with a private profile",
+      "An Instagram shopping website",
+      "A gaming account",
+    ],
+    correct: 0,
+  },
+
+  {
+    id: 8,
+    topic: "Digital Marketing",
+    question: "What is a Google Business Profile?",
+    options: [
+      "A business listing on Google showing details like address, reviews, and website",
+      "A social media account",
+      "A coding platform",
+      "A website theme",
+    ],
+    correct: 0,
+  },
+
+  {
+    id: 9,
+    topic: "CSS",
+    question: "Which is the correct CSS format to change paragraph text color?",
+    options: [
+      '<p style="color:DodgerBlue;">HELLO</p>',
+      '<p style="border:2px solid Tomato;">HELLO</p>',
+      '<p style="text-color:yellow;">HELLO</p>',
+      '<p style="background-color:yellow;">HELLO</p>',
+    ],
+    correct: 0,
+  },
+
+  {
+    id: 10,
+    topic: "Digital Marketing",
+    question: "What is a keyword in digital marketing?",
+    options: [
+      "A password used to access websites",
+      "A hashtag on social media",
+      "Words or phrases used to help target the correct audience online",
+      "A browser shortcut",
+    ],
+    correct: 2,
+  },
+
+  {
+    id: 11,
+    topic: "HTML",
+    question: "What does the <td> tag do in HTML?",
+    options: [
+      "Creates a heading",
+      "Defines a table row",
+      "Defines a data cell in a table",
+      "Creates a hyperlink",
+    ],
+    correct: 2,
+  },
+
+  {
+    id: 12,
+    topic: "Digital Marketing",
+    question: "What is Google Analytics?",
+    options: [
+      "A platform for creating logos",
+      "A Google tool used to monitor website traffic and audience interaction",
+      "A coding software",
+      "A social media app",
+    ],
+    correct: 1,
+  },
+
+  {
+    id: 13,
+    topic: "Digital Marketing",
+    question: "Which platform helps create a Google Business Profile?",
+    options: ["Google Docs", "Google Ads", "JustDial", "Google Maps"],
+    correct: 3,
+  },
+
+  {
+    id: 14,
+    topic: "HTML",
+    question: "Combining two or more table cells in a row is called?",
+    options: ["Colgroup", "Rowspan", "Colspan", "Merging"],
+    correct: 2,
+  },
+
+  {
+    id: 15,
+    topic: "Digital Marketing",
+    question: "Which is a major advantage of using Facebook for digital marketing?",
+    options: [
+      "Large audience reach",
+      "Difficult to use",
+      "Requires coding knowledge",
+      "Only works for large companies",
+    ],
+    correct: 0,
+  },
+
+  {
+    id: 16,
+    topic: "Digital Marketing",
+    question: "What is video marketing?",
+    options: [
+      "Using videos to promote products or services",
+      "Watching YouTube videos",
+      "Creating movies",
+      "Uploading random videos online",
+    ],
+    correct: 0,
+  },
+
+  {
+    id: 17,
+    topic: "Digital Marketing",
+    question: "What is the difference between a vlog and a blog?",
+    options: [
+      "A vlog mainly uses video content, while a blog mainly uses written content",
+      "Blogs only contain images",
+      "Vlogs are always live videos",
+      "Blogs are only used for business",
+    ],
+    correct: 0,
+  },
+
+  {
+    id: 18,
+    topic: "HTML",
+    question: "Which HTML tag is used to create a list item?",
+    options: ["<tr>", "<li>", "<th>", "<ul>"],
+    correct: 1,
+  },
+
+  {
+    id: 19,
+    topic: "HTML",
+    question: "A clickable element used to perform an action on a webpage is called a?",
+    options: ["Link", "Button", "URL", "Tag"],
+    correct: 1,
+  },
+
+  {
+    id: 20,
+    topic: "Digital Marketing",
+    question: "What is an Instagram Shop?",
+    options: [
+      "An Instagram feature that allows businesses to sell products directly",
+      "A paid Instagram game",
+      "An app used to edit videos",
+      "A browser extension",
+    ],
+    correct: 0,
+  },
+
+  {
+    id: 21,
+    topic: "HTML",
+    question: "Which HTML tag is used to create a hyperlink?",
+    options: ["<link>", "<a>", "<href>", "<url>"],
+    correct: 1,
+  },
+
+  {
+    id: 22,
+    topic: "HTML",
+    question: "Which HTML tag is used to display an image?",
+    options: ["<image>", "<picture>", "<img>", "<src>"],
+    correct: 2,
+  },
+
+  {
+    id: 23,
+    topic: "HTML",
+    question: "What does the <br> tag do?",
+    options: [
+      "Creates bold text",
+      "Inserts a line break",
+      "Creates a border",
+      "Starts a table",
+    ],
+    correct: 1,
+  },
+
+  {
+    id: 24,
+    topic: "HTML",
+    question: "Which HTML tag defines a table row?",
+    options: ["<td>", "<th>", "<tr>", "<table>"],
+    correct: 2,
+  },
+
+  {
+    id: 25,
+    topic: "HTML",
+    question: "Which HTML tag creates an ordered list?",
+    options: ["<ul>", "<li>", "<dl>", "<ol>"],
+    correct: 3,
+  },
+
+  {
+    id: 26,
+    topic: "CSS",
+    question: "Which CSS property changes the background color?",
+    options: ["color", "bg-color", "background-color", "fill"],
+    correct: 2,
+  },
+
+  {
+    id: 27,
+    topic: "CSS",
+    question: "Which CSS property controls text size?",
+    options: ["text-size", "font-size", "font-style", "text-style"],
+    correct: 1,
+  },
+
+  {
+    id: 28,
+    topic: "CSS",
+    question: "How do you write a comment in CSS?",
+    options: [
+      "// This is a comment",
+      "<!-- This is a comment -->",
+      "/* This is a comment */",
+      "# This is a comment",
+    ],
+    correct: 2,
+  },
+
+  {
+    id: 29,
+    topic: "CSS",
+    question: "Which CSS property makes text bold?",
+    options: [
+      "font-weight: bold",
+      "text-bold: true",
+      "font-style: bold",
+      "text-weight: bold",
+    ],
+    correct: 0,
+  },
+
+  {
+    id: 30,
+    topic: "CSS",
+    question: "Which CSS property controls space outside an element’s border?",
+    options: ["padding", "spacing", "margin", "border-spacing"],
+    correct: 2,
+  },
+
+  {
+    id: 31,
+    topic: "Digital Marketing",
+    question: "What does SEO stand for?",
+    options: [
+      "Social Engagement Optimization",
+      "Search Engine Optimization",
+      "Sponsored Email Outreach",
+      "Search Engine Operations",
+    ],
+    correct: 1,
+  },
+
+  {
+    id: 32,
+    topic: "Digital Marketing",
+    question: "What is a Call to Action (CTA)?",
+    options: [
+      "A customer support call",
+      "A prompt encouraging users to take a specific action",
+      "A marketing report",
+      "A sales meeting",
+    ],
+    correct: 1,
+  },
+
+  {
+    id: 33,
+    topic: "Digital Marketing",
+    question: "What does engagement rate measure on social media?",
+    options: [
+      "Number of followers",
+      "Advertising budget",
+      "Level of interaction such as likes, comments, and shares",
+      "Number of posts",
+    ],
+    correct: 2,
+  },
+
+  {
+    id: 34,
+    topic: "Digital Marketing",
+    question: "Why are hashtags used on social media?",
+    options: [
+      "To decorate posts",
+      "To categorize content and improve discoverability",
+      "To create websites",
+      "To edit videos",
+    ],
+    correct: 1,
+  },
+
+  {
+    id: 35,
+    topic: "Digital Marketing",
+    question: "What is email marketing?",
+    options: [
+      "Sending emails within a company",
+      "Using email to send promotional messages to customers",
+      "Creating email accounts",
+      "Blocking spam emails",
+    ],
+    correct: 1,
+  },
+
+  {
+    id: 36,
+    topic: "Digital Marketing",
+    question: "What does reach mean in social media marketing?",
+    options: [
+      "Number of posts created",
+      "Number of unique users who saw the content",
+      "Distance between customer and business",
+      "Advertising budget",
+    ],
+    correct: 1,
+  },
+
+  {
+    id: 37,
+    topic: "Digital Marketing",
+    question: "Which is an example of paid digital advertising?",
+    options: [
+      "Writing a blog post",
+      "Posting on Instagram for free",
+      "Running a Google Ads campaign",
+      "Creating a Facebook page",
+    ],
+    correct: 2,
+  },
+
+  {
+    id: 38,
+    topic: "Digital Marketing",
+    question: "What is content marketing?",
+    options: [
+      "Paying celebrities for advertisements",
+      "Creating and sharing valuable content to attract customers",
+      "Printing newspapers",
+      "Sending SMS messages",
+    ],
+    correct: 1,
+  },
+
+  {
+    id: 39,
+    topic: "Digital Marketing",
+    question: "What is an impression in digital advertising?",
+    options: [
+      "When a user clicks an ad",
+      "When a product is purchased",
+      "Each time an ad is displayed to a user",
+      "The design style of an ad",
+    ],
+    correct: 2,
+  },
+
+  {
+    id: 40,
+    topic: "Digital Marketing",
+    question: "What is influencer marketing?",
+    options: [
+      "Hiring TV actors for movies",
+      "Collaborating with popular social media creators to promote products",
+      "Sending emails to influencers",
+      "Creating memes online",
+    ],
+    correct: 1,
+  },
 ];
 
 module.exports = questions;
